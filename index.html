@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='pickUpApp'>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="scripts.js" type="text/javascript" charset="utf-8" async defer></script>
+	<link rel='stylesheet' type='text/css' href='style.css'>
+  <link rel="stylesheet" type='text/css' href="matchcss.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 </head>
-<body>
+<body ng-controller='mainCtrl'>
+<div class="navbar navbar-static">
+    <div class="container">
+      <ul class="nav navbar-nav">  
+        <li><a href="#/home" class="active"> Home</a></li>
+        <li><a href="#" class="active">Sports</a></li>
+      </ul>
+      <ul class="nav pull-right navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"> Login</a></li>
+            <li><a href="#"> Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="#"> Logout</a></li>
+          </ul>
+        </li>  
+      </ul>
+    </div>    
+  </div>
+</div>
+<div class="container" ng-view></div>
+
+
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js'></script>
+	<script src='js/app.js'></script>
+	<script src='js/mainCtrl.js'></script>
+	<script src='js/home/homeCtrl.js'></script>
+	<script src='js/createAccount/createAccountCtrl.js'></script>
+	<script src='js/matchView/matchViewCtrl.js'></script>
+	<script src='js/home/homeCtrl.js'></script>
+	<script src='js/organizeMatchInput/orgMatchCtrl.js'></script>
 
 </body>
 </html>
+
+<!-- header containing:
+left side - home button, find match(if multiple sports, if not everything should be on main page), organize match
+right side - sign up, log in. if already logged in, show message that says "Hello, {Name}", name is clickable giving drop down that allows you to sign out-->
+
+<!-- location search bar containing:
+search (recurring games, focus on soccer first if doing multiple sports then the option to search by sport);
+near zip code  -->
+
+<!-- match list(mainBody):
+make a list that can be sorted by: date, # of players rsvp, recuring game. Make entire box clickable to open match view.  In box who host, date, location, and players currently rsvp
+if multiple sports, move match list to a clicked on page that you go to after selecting a sport (will also have a button for all sports) -->
+
+<!-- possibly create a google map with pins of where the different games are -->
+
+<!-- footer: contact link -->
+
+
+
+<!-- When match is clicked -->
+
+<!-- button to rsvp for game, when pushed changes button cancel rsvp(if recuring game, second button for sign up for all.  If recuring signup is pushed have a button for cancel all and button for I'm out for single game) -->
+
+<!-- match info contain: host, time, location, details(containing whatever host wants to post) -->
+
+<!-- connects a google map to show location of the match -->
+
+<!-- gives forcast for that area (work with it to see which organization looks best, takes information from the location on google map to set weather)-->
+
+
+
+<!-- when organize match is click -->
+
+<!-- input fields for: time, location, recuring(click box), details, confirmation picture with text-->
+
+<!-- buttons: confirm(posts game in the ), cancel(returns to homepage) -->
+
+
+
+<!-- setting up account -->
+
+<!-- Have an area the allows you to sign in if you already have account -->
+
+<!-- input fields for: name, email, password, confirm password, click option to stay logged in, confirmation picture with text, possible sports you'd like to auto populate if using more then one sport-->
+
+<!-- buttons: confirm(posts to database, allows access to creating and joining games), cancel(returns to homepage) -->
+
+
+
+<!-- contact link page: input box for suggestions of bugs that are found in the code. input sends message to an email address that is previously input-->
+
+
+<!-- NOTES: must be logged in to create and join matches. if buttons are clicked while not logged in open the set up account view. -->

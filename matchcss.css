@@ -1,0 +1,12 @@
+.gameAddress {
+	font-size: 40px;
+}
+.host {
+	font-size: 20px;
+}
+.rsvp button{
+	background-image: none;
+	background-color: blue;
+	color: white;
+	border: 2px solid white;
+}
