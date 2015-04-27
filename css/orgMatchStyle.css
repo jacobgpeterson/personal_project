@@ -1,0 +1,16 @@
+.orgMatchContainer {
+	width: 70%;
+	height: auto;
+	margin: 0 auto 20px;
+	background-color: grey;
+	padding: 20px;
+	min-width: 500px;
+}
+.orgTimeSet {
+	margin-left: 15px;
+}
+.orgMatchCancel {
+	margin-left: 20px;
+	font-size: 15px;
+	color: white;
+}

@@ -1,4 +1,49 @@
-<div>Organize Match</div>
-<div>input forms for: Time, Location, Details, click for recurring</div>
-<div> <button class='organizeButton' ng-click=''>Submit</button>takes in the inputs and populates matchView page</div>
-<button class='cancelButton' ng-click='cancelButton'>Cancel</button>
+<div class="orgMatchContainer">
+	<h1 class="orgMatchHeader">Organize Match</h1>
+	<br />
+	<div class="form-group">
+		<label>Select Sport:</label>
+		<select class="form-control">
+			<option value="" disabled selected>Select Sport</option>
+	    	<option value="">Baseball</option>
+	    	<option value="">Basketball</option>
+	    	<option value="">Football</option>
+	    	<option value="">Kickball</option>
+	    	<option value="">Soccer</option>
+	    	<option value="">Softball</option>
+	    	<option value="">Ultimate Frisbee</option>
+		</select>
+	</div>
+	<div>
+		<label>Street Address:</label>
+		<input type="text" class="form-control" placeholder="123 Fake Street">
+		<label>City</label>
+		<input type="text" class="form-control" placeholder="City">
+		<label>State</label>
+		<input type="address-level1" class="form-control" placeholder="State">
+		<label>ZIP</label>
+		<input type="number" class="form-control" placeholder="ZIP">
+	</div>
+	<br />
+	<div>
+		<label>Date:</label>
+		<input type="date">
+		<label class="orgTimeSet">Time:</label>
+		<input type="time">
+	</div>
+	<br />
+	<div>
+		<label>Additional Details (optional):</label>
+		<br />
+		<textarea class="form-control" rows="3" placeholder="Additional Details"></textarea>
+	</div>
+	<br />
+	<div>
+		<label><input type="checkbox"> Recurring Game</label>
+	</div>
+	<br />
+	<div class="matchSubmit">
+		<button type="submit" class="submit btn btn-default" value="submit" ng-click="">Submit</button>
+		<a class='orgMatchCancel' href='#/home'>Cancel</a>
+	</div>
+</div>

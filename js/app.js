@@ -11,7 +11,7 @@ app.config(function($routeProvider){
 		controller:'createAccountCtrl'
 	})
 	.when('/organizeMatch', {
-		templateUrl:'js/organizeMatch/orgMatch.html',
+		templateUrl:'js/organizeMatchInput/orgMatch.html',
 		controller:'orgMatchCtrl'
 	})
 	.when('/matchView', {
