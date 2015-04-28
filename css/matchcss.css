@@ -1,10 +1,11 @@
 .matchContainer {
 	width:70%;
 	height:auto;
-	background-color: cyan;
+	background-color: grey;
 	margin: 0 auto 20px;
 	padding: 15px;
 	min-width: 600px;
+	color: white;
 }
 .gameAddress {
 	font-size: 40px;
@@ -20,21 +21,18 @@
 }
 .rsvp button{
 	background-image: none;
-	background-color: blue;
+	background-color: #5CB0FB;
 	color: white;
-	border: 2px solid white;
+	border: 1px solid white;
 }
 .mapContainer {
 	height: 500px;
 	width: 90%;
-	background-color: grey;
 	margin: 0 auto;
 }
-.map-canvas {
-	height: 100%;
+iframe {
+	height:100%;
 	width:100%;
-	margin:0;
-	padding:0;
 }
 .addPlayerComment {
 	width:90%;

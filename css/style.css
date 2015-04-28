@@ -1,7 +1,10 @@
 html, body {
 	height:100%;
 	width:100%;
-  background-color: orange !important;
+  background-image: url("../img/grass.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .navbar {

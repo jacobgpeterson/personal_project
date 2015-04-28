@@ -1,19 +1,21 @@
 <div class="matchContainer">
 	<div class="matchInformation">
-		<div class="gameAddress">Address: {{ address }}</div>
+		<div class="gameAddress">Location: {{ address }}</div>
 		<div class="host">Host: {{ name }}</div>
 		<div class="gameTime">Time: {{ time }}</div>
-		<div class="additionalComments">Additional Details: {{ additionalDetails }}</div>
+		<div class="additionalDetails">Additional Details: {{ additionalDetails }}</div>
 		<div>Whose going</div>
 		<div class='rsvp'>
 			<button type='button' class='btn btn-default' ng-click=''>RSVP</button>
 		</div>
 	</div>
 	<br />
-	<div>Weather API</div>
-	<br />
 	<div class="mapContainer">
-		<div class="map-canvas"></div>
+		<iframe
+	  		frameborder="0" style="border:0"
+	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw
+	    	&q=Mitchell Hollow Park">
+		</iframe>
 	</div>
 	<br />
 	<div class="addPlayerComment">

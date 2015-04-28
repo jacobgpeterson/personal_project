@@ -14,6 +14,10 @@ app.config(function($routeProvider){
 		templateUrl:'js/organizeMatchInput/orgMatch.html',
 		controller:'orgMatchCtrl'
 	})
+	.when('/findMatch', {
+		templateUrl:'js/findGame/findGame.html',
+		controller:'findGameCtrl'
+	})
 	.when('/matchView', {
 		templateUrl:'js/matchView/matchView.html',
 		controller:'matchViewCtrl'
