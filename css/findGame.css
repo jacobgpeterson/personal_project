@@ -1,0 +1,15 @@
+.findGameContainer {
+	width:70%;
+	height:auto;
+	background-color: grey;
+	margin: 0 auto;
+	padding: 15px;
+	min-width: 600px;
+	color: white;
+}
+.findGameContainer h1 {
+	text-align: center;
+}
+.noResults {
+	text-align: center;
+}

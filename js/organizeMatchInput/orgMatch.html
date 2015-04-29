@@ -5,13 +5,13 @@
 		<label>Select Sport:</label>
 		<select class="form-control">
 			<option value="" disabled selected>Select Sport</option>
-	    	<option value="">Baseball</option>
-	    	<option value="">Basketball</option>
-	    	<option value="">Football</option>
-	    	<option value="">Kickball</option>
-	    	<option value="">Soccer</option>
-	    	<option value="">Softball</option>
-	    	<option value="">Ultimate Frisbee</option>
+	    	<option value="baseball">Baseball</option>
+	    	<option value="basketball">Basketball</option>
+	    	<option value="football">Football</option>
+	    	<option value="soccer">Soccer</option>
+	    	<option value="softball">Softball</option>
+	    	<option value="ultimatefrisbee">Ultimate Frisbee</option>
+	    	<option value="volleyball">Volleyball</option>
 		</select>
 	</div>
 	<div>
@@ -96,9 +96,8 @@
 <!-- 	<div>
 		<label><input type="checkbox"> Recurring Game</label>
 	</div> -->
-	<br />
 	<div class="matchSubmit">
-		<button type="submit" class="submit btn btn-default" value="submit" ng-click="">Submit</button>
+		<button type="submit" class="submit btn btn-default" value="submit" ng-submit="postMatch()">Submit</button>
 		<a class='orgMatchCancel' href='#/home'>Cancel</a>
 	</div>
 </div>

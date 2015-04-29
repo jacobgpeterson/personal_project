@@ -1,2 +1,10 @@
-<div>Search for a game near you!</div>
-<div>List of games and such</div>
+<div class='findGameContainer'>
+	<h1 class='findGameHeader'> {{gameType}} </h1>
+	<br />
+	<div ng-repeat=''>
+		<div>{{address}}</div>
+		<div>{{name}}</div>
+		<div>{{date}}</div>
+	</div>
+	<div class='noResults'> - - No Additional Upcoming Games - - </div>
+</div>

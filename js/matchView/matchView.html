@@ -4,17 +4,23 @@
 		<div class="host">Host: {{ name }}</div>
 		<div class="gameTime">Time: {{ time }}</div>
 		<div class="additionalDetails">Additional Details: {{ additionalDetails }}</div>
-		<div>Whose going</div>
+		<div>Whose going/amount of people going</div>
 		<div class='rsvp'>
 			<button type='button' class='btn btn-default' ng-click=''>RSVP</button>
 		</div>
 	</div>
+	
 	<br />
 	<div class="mapContainer">
 		<iframe
 	  		frameborder="0" style="border:0"
 	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw
 	    	&q=Mitchell Hollow Park">
+		</iframe>
+	</div>
+	<br />
+	<div class='weatherContainer'>
+		<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=40.4198184&lon=-111.8132986&name=Highland, Utah">
 		</iframe>
 	</div>
 	<br />

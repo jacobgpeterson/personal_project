@@ -25,14 +25,20 @@
 	color: white;
 	border: 1px solid white;
 }
-.mapContainer {
-	height: 500px;
+.weatherContainer {
+	height:245px;
 	width: 90%;
 	margin: 0 auto;
+	background-color: #eeeeee;
 }
 iframe {
 	height:100%;
 	width:100%;
+}
+.mapContainer {
+	height: 500px;
+	width: 90%;
+	margin: 0 auto;
 }
 .addPlayerComment {
 	width:90%;

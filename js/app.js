@@ -14,7 +14,7 @@ app.config(function($routeProvider){
 		templateUrl:'js/organizeMatchInput/orgMatch.html',
 		controller:'orgMatchCtrl'
 	})
-	.when('/findMatch', {
+	.when('/findMatch/:selectType', {
 		templateUrl:'js/findGame/findGame.html',
 		controller:'findGameCtrl'
 	})
