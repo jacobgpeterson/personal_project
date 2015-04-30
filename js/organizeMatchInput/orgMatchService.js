@@ -1,11 +1,11 @@
 var app = angular.module('pickUpApp');
 
 app.service('orgMatchService' function(){
-	this.postMatch = function(message) {
+	this.postMatch = function() {
     return $http({
     method: "POST",
     url: '',
-    data: {text: message}
+    data: $.param{$scope.pickUpApp}
   });
   }
 })

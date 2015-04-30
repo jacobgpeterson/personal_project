@@ -1,10 +1,12 @@
 <div class='findGameContainer'>
 	<h1 class='findGameHeader'> {{gameType}} </h1>
 	<br />
-	<div ng-repeat=''>
-		<div>{{address}}</div>
-		<div>{{name}}</div>
-		<div>{{date}}</div>
+	<div ng-repeat='item in items'>
+		<a href='{{}}'>
+			<div>{{address}}</div>
+			<div>{{name}}</div>
+			<div>{{date}}</div>
+		</a>
 	</div>
 	<div class='noResults'> - - No Additional Upcoming Games - - </div>
 </div>
