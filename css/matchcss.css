@@ -1,5 +1,5 @@
 .matchContainer {
-	width:70%;
+	width:75%;
 	height:auto;
 	background-color: grey;
 	margin: 0 auto 20px;
@@ -43,4 +43,15 @@ iframe {
 .addPlayerComment {
 	width:90%;
 	margin: 0 auto;
+}
+.postedComment {
+	width:90%;
+	margin: 10px auto;
+	padding: 5px;
+	text-align: left;
+	border-bottom: 1px solid white;
+}
+.timeStamp {
+	text-align: right;
+	
 }

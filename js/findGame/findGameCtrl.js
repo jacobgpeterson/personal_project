@@ -16,5 +16,7 @@ app.controller('findGameCtrl', function($scope, $routeParams){
 		$scope.gameType = 'Ultimate Frisbee';
 	} else if($routeParams.selectType === 'volleyball'){
 		$scope.gameType = 'Volleyball';
+	} else if($routeParams.selectType === 'misc'){
+		$scope.gameType = 'Misc';
 	};
 });

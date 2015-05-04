@@ -1,9 +1,9 @@
 <div class="matchContainer">
 	<div class="matchInformation">
-		<div class="gameAddress">Location: {{ location }}</div>
+		<div class="gameAddress">Location: {{ match.location }}</div>
 		<div class="host">Host: {{ name }}</div>
-		<div class="gameTime">Time: {{ time }}</div>
-		<div class="additionalDetails">Additional Details: {{ additionalDetails }}</div>
+		<div class="gameTime">Time: {{ match.date }} {{ match.time }}</div>
+		<div class="additionalDetails">Additional Details: {{ match.additionalDetails }}</div>
 		<div>Whose going/amount of people going</div>
 		<div class='rsvp'>
 			<button type='button' class='btn btn-default' ng-click=''>RSVP</button>
@@ -25,9 +25,14 @@
 	</div>
 	<br />
 	<div class="addPlayerComment">
-		<label>Additional Comments:</label>
-		<textarea class="form-control" rows="3"
+		<label>Comments:</label>
+		<textarea class="form-control" rows="3" ng-model="matchView.comments"
 		placeholder="Input Box for additional comments from people attending"></textarea>
 	</div>
 	<br />
+	<div class="postedComment">
+		<div> {{ userName.name }}: </div>
+		<div> {{ matchView.comment }} </div>
+		<div class="timeStamp"> {{ createdAt.date }}</div>
+	</div>
 </div>
