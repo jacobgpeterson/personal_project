@@ -1,0 +1,26 @@
+{
+  "name": "personal_project",
+  "version": "1.0.0",
+  "description": "personal project. pickup soccer site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacobgpeterson/personal_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobgpeterson/personal_project/issues"
+  },
+  "homepage": "https://github.com/jacobgpeterson/personal_project",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "cors": "^2.6.0",
+    "express": "^4.12.3",
+    "mongoose": "^4.0.2"
+  }
+}
