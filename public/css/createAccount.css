@@ -1,8 +1,13 @@
 .createAccountForm {
-	width: 75%;
+	width: 90%;
 	height: auto;
 	margin: 0 auto;
 	background-color: grey;
 	padding: 15px;
+	color: white;
+}
+.createCancel {
+	margin-left: 20px;
+	font-size: 15px;
 	color: white;
 }

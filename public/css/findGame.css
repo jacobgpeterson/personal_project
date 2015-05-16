@@ -1,5 +1,5 @@
 .findGameContainer {
-	width:75%;
+	width:90%;
 	height:auto;
 	background-color: grey;
 	margin: 0 auto;
@@ -10,6 +10,18 @@
 .findGameContainer h1 {
 	text-align: center;
 }
+.lookUpMatchContainer {
+	border-bottom: 1px solid white;
+	margin: 10px;
+	color: white;
+	text-decoration: none;
+	font-size: 24px;
+}
+.lookUpMatchContainer:hover {
+	text-decoration: none;
+	color: #eeeeee;
+}
 .noResults {
 	text-align: center;
+	font-size: 15px;
 }

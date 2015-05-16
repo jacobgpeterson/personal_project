@@ -1,12 +1,12 @@
 <div class="matchContainer">
 	<div class="matchInformation">
-		<div class="gameAddress">Location: {{ match.location }}</div>
-		<div class="host">Host: {{ name }}</div>
-		<div class="gameTime">Time: {{ match.date }} {{ match.time }}</div>
-		<div class="additionalDetails">Additional Details: {{ match.additionalDetails }}</div>
-		<div>Whose going/amount of people going</div>
+		<div class="gameAddress">Location: {{ item.location }}, {{item.city}}</div>
+		<div class="host">Host: {{ user.name }}</div>
+		<div class="gameTime">Time: {{ item.date | date:medium }}</div>
+		<div class="additionalDetails">Additional Details: {{ item.additionalDetails }}</div>
 		<div class='rsvp'>
-			<button type='button' class='btn btn-default' ng-click=''>RSVP</button>
+			<button type='button' class='btn btn-default btn-lg' ng-click=''>RSVP</button>
+			<div class="attend">Whose going: | 1</div>
 		</div>
 	</div>
 	
@@ -15,7 +15,7 @@
 		<iframe
 	  		frameborder="0" style="border:0"
 	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw
-	    	&q=Mitchell Hollow Park">
+	    	&q=Mitchell Hollow Park" {{match.location}} {{match.city}} {{match.state}}>
 		</iframe>
 	</div>
 	<br />
@@ -25,14 +25,16 @@
 	</div>
 	<br />
 	<div class="addPlayerComment">
-		<label>Comments:</label>
-		<textarea class="form-control" rows="3" ng-model="matchView.comments"
-		placeholder="Input Box for additional comments from people attending"></textarea>
+		<form>
+			<label>Comments:</label>
+			<textarea class="form-control" rows="3" ng-model="matchView.comments"placeholder="Input Box for additional comments from people attending"></textarea>
+			<button type='submit' class='btn btn-primary'>Comment</button>
+		</form>
 	</div>
 	<br />
 	<div class="postedComment">
-		<div> {{ userName.name }}: </div>
-		<div> {{ matchView.comment }} </div>
+		<div> {{ user.name }}: </div>
+		<div> {{ comment.comment }} </div>
 		<div class="timeStamp"> {{ createdAt.date }}</div>
 	</div>
 </div>

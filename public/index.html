@@ -2,12 +2,12 @@
 <html ng-app='pickUpApp'>
 <head>
 	<title>Pick-Up Sports</title>
-	<link rel='stylesheet' type='text/css' href='css/style.css'>
-  <link rel="stylesheet" type='text/css' href="css/matchcss.css">
-  <link rel="stylesheet" type='text/css' href="css/orgMatchStyle.css">
-  <link rel="stylesheet" type='text/css' href="css/createAccount.css">
-  <link rel="stylesheet" type='text/css' href="css/findGame.css">
-  <link rel="stylesheet" type='text/css' href="css/homecss.css">
+	<link rel='stylesheet' type='text/css' href='./css/style.css'>
+  <link rel="stylesheet" type='text/css' href="./css/matchcss.css">
+  <link rel="stylesheet" type='text/css' href="./css/orgMatchStyle.css">
+  <link rel="stylesheet" type='text/css' href="./css/createAccount.css">
+  <link rel="stylesheet" type='text/css' href="./css/findGame.css">
+  <link rel="stylesheet" type='text/css' href="./css/homecss.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 </head>
@@ -34,6 +34,8 @@
         <li class="dropdown">
           <a href class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><span class="glyphicon glyphicon-user"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <li><a href="#/createAccount">Register</a></li>
+            <li class="divider"></li>
             <li><a href="#"> Login</a></li>
             <li class="divider"></li>
             <li><a href="#"> Logout</a></li>
@@ -50,16 +52,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src='https://www.google.com/recaptcha/api.js'></script>
-	<script src='js/app.js'></script>
-	<script src='js/mainCtrl.js'></script>
-	<script src='js/home/homeCtrl.js'></script>
-	<script src='js/createAccount/createAccountCtrl.js'></script>
-	<script src='js/matchView/matchViewCtrl.js'></script>
-	<script src='js/home/homeCtrl.js'></script>
-	<script src='js/organizeMatchInput/orgMatchCtrl.js'></script>
-  <script src='js/matchView/matchViewService.js'></script>
-  <script src='js/findGame/findGameCtrl.js'></script>
-  <script src='js/findGame/findGameService.js'></script>
+	<script src='./js/app.js'></script>
+	<script src='./js/mainCtrl.js'></script>
+	<script src='./js/home/homeCtrl.js'></script>
+	<script src='./js/createAccount/createAccountCtrl.js'></script>
+	<script src='./js/matchView/matchViewCtrl.js'></script>
+	<script src='./js/home/homeCtrl.js'></script>
+	<script src='./js/organizeMatchInput/orgMatchCtrl.js'></script>
+  <script src='./js/matchView/matchViewService.js'></script>
+  <script src='./js/findGame/findGameCtrl.js'></script>
+  <script src='./js/findGame/findGameService.js'></script>
 
 </body>
 </html>
