@@ -1,11 +1,11 @@
 <div class='findGameContainer'>
 	<h1 class='findGameHeader'> {{gameType}} </h1>
 	<br />
-	<div ng-repeat='item in items'>
-		<a class='lookUpMatchContainer' ng-href="#/matchView/{{item._id}}" >			
+	<div ng-repeat='item in items | filter:date' class="somethingWeird">
+		<a class='lookUpMatchContainer' ng-href="#/matchView/{{item._id}}">	
 		<div>{{item.location}}, {{item.city}}</div>
-		<div>{{item.sport}}</div>
-		<div>{{item.date | date:medium}}</div>
+		<div>Host: {{item.sport}}</div>
+		<div>{{item.date | date:'MMM dd, yyyy  h:mm a'}}</div>
 		</a>
 	</div>
 	<div class='noResults'> - - No Additional Upcoming Games - - </div>

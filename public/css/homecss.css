@@ -1,26 +1,39 @@
 .homeContainer {
-	min-width: 700px;
+	color: white;
 }
 .homeTitle {
 	width: 100%;
 	background-color: grey;
 	padding: 40px;
-	color: white;
 	font-size: 7vw;
 	text-align: center;
 	font-family: courier;
+}
+.homeTitleDivider{
+	width:100%;
+	font-size:1vw;
+	background-color: white;
 }
 .homeTypeContainer {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
+	background-color: grey;
 }
-.sportLinkClickableImage {
-	width: 30%;
-	height: 300px;
-	padding:2%;
+.sportLinkClickable {
 	text-align: center;
-	font-size: 30px;
+	font-size: 3vw;
+	background-color: #515151;
+	color:white;
+	margin: 20px 15px;
+	padding: 2vw;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: courier;
+}
+.sportLinkClickable:hover {
+	text-decoration: none;
+	color: black;
 }
 img {
 	width:100%;

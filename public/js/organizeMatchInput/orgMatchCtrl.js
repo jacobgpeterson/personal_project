@@ -1,6 +1,6 @@
 var app = angular.module('pickUpApp');
 
-app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl){
+app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl, $location){
 	console.log('orgMatch shiz!');
 	
 		$scope.addMatch = function(){
@@ -25,8 +25,9 @@ app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl){
 				additionalDetails: $scope.match.additionalDetails,
 			}
 		}).success(function(data){
-			console.log("Hazzah: " + angular.toJson(data));
+			console.log("Success: " + angular.toJson(data));
 			dfd.resolve(data);
+			$location.path('#/matchView/' + data._id)
 		}).error(function(data){
 			console.log("Error: "+ angular.toJson(data));
 		});

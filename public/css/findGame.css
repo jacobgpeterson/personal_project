@@ -9,9 +9,13 @@
 }
 .findGameContainer h1 {
 	text-align: center;
+	font-size: 7vw;
+	font-family: courier;
+}
+.somethingWeird {
+	border-top: 1px solid white;	
 }
 .lookUpMatchContainer {
-	border-bottom: 1px solid white;
 	margin: 10px;
 	color: white;
 	text-decoration: none;

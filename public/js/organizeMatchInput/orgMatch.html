@@ -4,7 +4,7 @@
 	<form ng-submit="addMatch()">
 		<div class="form-group">
 			<label>Select Sport:</label>
-			<select class="form-control" ng-model="match.sport">
+			<select class="form-control" ng-model="match.sport" required>
 				<option value="" disabled selected>Select Sport</option>
 		    	<option value="baseball">Baseball</option>
 		    	<option value="basketball">Basketball</option>
@@ -18,12 +18,12 @@
 		</div>
 		<div>
 			<label>Park Name or Street Address:</label>
-			<input type="text" class="form-control" placeholder="123 Fake Street" ng-model="match.location">
+			<input type="text" class="form-control" placeholder="123 Fake Street" ng-model="match.location" required>
 			<label>City</label>
-			<input type="text" class="form-control" placeholder="City" ng-model="match.city">
+			<input type="text" class="form-control" placeholder="City" ng-model="match.city" required>
 			<div class="stateSelect">
 				<label>State:</label>
-				<select class="form-control" ng-model="match.state">
+				<select class="form-control" ng-model="match.state" required>
 					<option value="" disabled selected>Select State</option>
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
@@ -82,9 +82,9 @@
 		<br />
 		<div>
 			<label>Date:</label>
-			<input class="dateInput" type="date" ng-model="match.date">
+			<input class="dateInput" type="date" ng-model="match.date" required>
 			<label class="orgTimeSet">Time:</label>
-			<input type="time" ng-model="match.time">
+			<input type="time" ng-model="match.time" required>
 		</div>
 		<br />
 		<div>
