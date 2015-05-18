@@ -1,8 +1,19 @@
 .homeContainer {
+	min-width: 700px;
+}
+.homeTitle {
+	width: 100%;
+	background-color: grey;
+	padding: 40px;
+	color: white;
+	font-size: 7vw;
+	text-align: center;
+	font-family: courier;
+}
+.homeTypeContainer {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-	min-width: 700px;
 }
 .sportLinkClickableImage {
 	width: 30%;
