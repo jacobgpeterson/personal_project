@@ -1,36 +1,29 @@
 <div class='createAccountForm'>
 	<h1>Register</h1>
-	<form>
-		<div class='form-group'>
-			<label for='inputName'>Name (What others will see)</label>
-			<input type='text' class='form-control' placeholder='Enter name' ng-minlength=3 ng-maxlength=16 required>
+	<form ng-submit='addUser()'>
+		<div>
+			<label>Username</label>
+			<input type='text' class='form-control' ng-model='user.name' placeholder='Enter name' ng-minlength='3' ng-maxlength='20' required>
 		</div>
-		<div class='form-group'>
-			<label for='inputEmail'>Email</label>
-			<input type='email' class='form-control' placeholder='Enter email' required>
+		<div>
+			<label>Email</label>
+			<input type='email' class='form-control' ng-model='user.email' placeholder='Enter email' required>
 		</div>
-		<div class='form-group'>
-			<label for='pwd'>Password</label>
-			<input type='password' class='form-control' placeholder='Enter password' ng-minlength=4 ng-maxlength=16 required>
+		<div>
+			<label>Password</label>
+			<input type='password' class='form-control' ng-model='user.password'placeholder='Enter password' ng-minlength=4 ng-maxlength=16 required>
 		</div>
-		<div class='form-group'>
-			<label for='pwd1'>Confirm Password</label>
+		<div>
+			<label>Confirm Password</label>
 			<input type='password' class='form-control' placeholder='Confirm password' ng-minlength=4 ng-maxlength=16 required>
 		</div>
-		<div class="form-group">
-    		<div class="col-sm-offset-2 col-sm-10">
-    			<div class="checkbox">
-    				<label>
-    					<input type="checkbox"> Remember Me
-       				</label>
-		      	</div>
-		    </div>
+		<div class="checkbox">
+    		<label>
+    			<input type="checkbox"> Remember Me
+       		</label>
 		</div>
 		<br />
 		<button type='submit' class='btn btn-default'>Submit</button>
 		<a class='createCancel' href='#/home'>Cancel</a>
 	</form>
-	<pre>
-	{{user}}
-	</pre>
 </div>

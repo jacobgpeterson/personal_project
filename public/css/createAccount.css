@@ -6,6 +6,12 @@
 	padding: 15px;
 	color: white;
 }
+.createAccountForm div{
+	margin: 20px 0;
+}
+.checkbox label{
+	margin: 10px 20px 0;
+}
 .createCancel {
 	margin-left: 20px;
 	font-size: 15px;

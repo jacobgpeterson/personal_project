@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-var multer = require('multer');
+var morgan = require('morgan');
 var Comment = require('./models/Comment');
 var Match = require('./models/Match');
 var User = require('./models/User');
@@ -22,9 +22,23 @@ var app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use(multer());
+app.use(morgan('dev'));
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+});
 
 // Endpoints
+app.post('/user', function(req, res){
+	var newUser = new User(req.body);
+	console.log(newUser);
+	newUser.save(function(err, result){
+		if (err) {return res.status(500).send(err);}
+    	res.send(result);
+	});
+});
 app.post('/match', function(req, res){
 	var newMatch = new Match(req.body);
 	console.log(newMatch);

@@ -1,7 +1,6 @@
 var app = angular.module('pickUpApp');
 
 app.controller('findGameCtrl', function($scope, $routeParams, $http, apiUrl){
-	console.log('findGame connected');
 	if($routeParams.selectType === 'baseball'){
 		$scope.gameType = 'Baseball';
 	} else if($routeParams.selectType === 'basketball'){
@@ -27,7 +26,6 @@ app.controller('findGameCtrl', function($scope, $routeParams, $http, apiUrl){
 			$scope.items = data;
 		});
 	};
-
 
 	getGames($scope.gameType.toLowerCase());
 });

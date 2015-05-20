@@ -1,7 +1,6 @@
 var app = angular.module('pickUpApp');
 
 app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl, $location){
-	console.log('orgMatch shiz!');
 	
 		$scope.addMatch = function(){
 		var dfd = $q.defer();

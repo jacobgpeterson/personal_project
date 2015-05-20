@@ -19,13 +19,16 @@ html, body {
   padding-right:20px;
   border-left:1px solid #e8e8e8;
 }
+.navbar-nav li a:hover {
+  color:#555555;
+}
 .navbar-nav li:last-child a {
   border-right:1px solid #e8e8e8;
 }
-/*.navbar-nav .active a, .navbar-nav .active a:hover, .navbar-nav .active a:focus {
+.navbar-nav .active a, .navbar-nav .active a:hover, .navbar-nav .active a:focus {
   color: #000000;
 	background-color:transparent;
-}*/
+}
 .navbar-nav .open a, .navbar-nav .open a:hover, .navbar-nav .open a:focus {
 	color: #555555;
 	background-color:transparent;
@@ -43,6 +46,7 @@ html, body {
 
 .dropdown-menu {
 	min-width: 250px;
+  background-color: #515151;
 }
 
 .navbar-toggle {
@@ -57,4 +61,32 @@ html, body {
 .panel {
 	padding-left:27px;
   padding-right:27px;
+}
+
+.loginButton {
+  float: left;
+}
+
+.registerButton {
+  float: right;
+  margin-top: 2px;
+}
+
+.footer {
+  background-color: #515151;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  bottom: 0;
+}
+
+.footer a {
+  color: white;
+  padding: 0 30px;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: black;
 }
