@@ -63,6 +63,10 @@ html, body {
   padding-right:27px;
 }
 
+.loginForm input {
+  margin: 2px 0;
+}
+
 .loginButton {
   float: left;
 }
@@ -72,21 +76,6 @@ html, body {
   margin-top: 2px;
 }
 
-.footer {
-  background-color: #515151;
-  padding: 20px;
-  text-align: center;
-  margin-top: 20px;
-  position: relative;
-  bottom: 0;
-}
-
-.footer a {
-  color: white;
-  padding: 0 30px;
-}
-
-.footer a:hover {
-  text-decoration: none;
-  color: black;
+.bodyContainer {
+  margin: 20px auto;
 }

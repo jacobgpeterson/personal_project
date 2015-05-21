@@ -5,6 +5,9 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var morgan = require('morgan');
+var jwt = require('jsonwebtoken');
+var secret = '20h@0vah%9vhq30944&0204!';
+
 var Comment = require('./models/Comment');
 var Match = require('./models/Match');
 var User = require('./models/User');
@@ -20,23 +23,51 @@ String.prototype.toObjectId = function() {
 var app = express();
 
 // Middleware
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev'));
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
-    next();
-});
 
 // Endpoints
 app.post('/user', function(req, res){
 	var newUser = new User(req.body);
-	console.log(newUser);
+	console.log(req.body);
+	newUser.password = newUser.generateHash(newUser.password);
 	newUser.save(function(err, result){
 		if (err) {return res.status(500).send(err);}
     	res.send(result);
+	});
+});
+app.post('/login', function(req, res){
+	console.log(req.body);
+	User.findOne({
+		username: req.body.username
+	}, function(err, user){
+		console.log(user);
+		if (err) throw err;
+
+		if (!user) {
+			res.json({ success: false, message: 'Authentication failed. User or password not found. 1'});
+		} else{
+			bcrypt.compare(req.body.password, user.password, function(err, match){
+				console.log(err);
+				if (match){
+					var token = jwt.sign(user.username, secret, {
+					expiresInMinutes: 1440
+					});
+					res.status(200).json({
+						success: true,
+						message: 'Token Success!',
+						token: token,
+						user: user.username
+					});
+				} else {
+					res.status(401).json({
+						message: 'error'
+					})
+				}
+			}); 
+		};
 	});
 });
 app.post('/match', function(req, res){
@@ -47,6 +78,11 @@ app.post('/match', function(req, res){
       res.send(result);
   	});
 });
+app.get('/users', function(req, res) {
+  	User.find({}, function(err, users) {
+    	res.json(users);
+  	});
+});   
 app.get('/find/:sport', function(req, res){
 	var sport = req.params.sport;
 	Match.find({'sport' : sport}, function(err, matches){
