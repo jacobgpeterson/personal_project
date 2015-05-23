@@ -16,9 +16,7 @@ String.prototype.toObjectId = function() {
   var ObjectId = (require('mongoose').Types.ObjectId);
   return new ObjectId(this.toString());
 };
-// Controllers
-// var SightingCtrl = require('./controllers/SightingCtrl');
-// var UserCtrl = require('./controllers/UserCtrl');
+
 // Express
 var app = express();
 
@@ -31,7 +29,6 @@ app.use(morgan('dev'));
 // Endpoints
 app.post('/user', function(req, res){
 	var newUser = new User(req.body);
-	console.log(req.body);
 	newUser.password = newUser.generateHash(newUser.password);
 	newUser.save(function(err, result){
 		if (err) {return res.status(500).send(err);}
@@ -39,18 +36,15 @@ app.post('/user', function(req, res){
 	});
 });
 app.post('/login', function(req, res){
-	console.log(req.body);
 	User.findOne({
 		username: req.body.username
 	}, function(err, user){
-		console.log(user);
 		if (err) throw err;
 
 		if (!user) {
-			res.json({ success: false, message: 'Authentication failed. User or password not found. 1'});
+			res.status(401).json({ success: false, message: 'Authentication failed. User or password not found.'});
 		} else{
 			bcrypt.compare(req.body.password, user.password, function(err, match){
-				console.log(err);
 				if (match){
 					var token = jwt.sign(user.username, secret, {
 					expiresInMinutes: 1440
@@ -62,9 +56,7 @@ app.post('/login', function(req, res){
 						user: user.username
 					});
 				} else {
-					res.status(401).json({
-						message: 'error'
-					})
+					res.status(401).json({ message: 'Authentication failed. User or password not found.'});
 				}
 			}); 
 		};
@@ -77,6 +69,12 @@ app.post('/match', function(req, res){
       if (err) {return res.status(500).send(err);}
       res.send(result);
   	});
+});
+app.get('/api/restricted', function (req, res) {
+  console.log('user ' + req.user.email + ' is calling /api/restricted');
+  res.json({
+    name: 'foo'
+  });
 });
 app.get('/users', function(req, res) {
   	User.find({}, function(err, users) {

@@ -1,10 +1,10 @@
 var app = angular.module('pickUpApp');
 
 
-app.controller('mainCtrl', function($scope, $http, apiUrl){
-	console.log('mainCtrl connected');
+app.controller('mainCtrl', function($scope, $http, $window, apiUrl){
+	$scope.user = (username = '');
+	$scope.message = '';
 	$scope.mainLogin = function(){
-		console.log('function hit');
 		$http({
 			method: 'POST',
 			url: apiUrl + '/login',
@@ -12,10 +12,17 @@ app.controller('mainCtrl', function($scope, $http, apiUrl){
 				username: $scope.login.username,
 				password: $scope.login.password,
 			}
-		}).success(function(data){
+		}).success(function(data, status, headers, config){
 			console.log("Success: " + angular.toJson(data));
-		}).error(function(data){
+			$window.sessionStorage.token = data.token;
+			$window.sessionStorage.user = data.user;
+			console.log($window.sessionStorage);
+        	$scope.message = 'Welcome';
+		}).error(function(data, status, headers, config){
 			console.log("Error: " + angular.toJson(data));
+			$scope.message = "Error: Invalid username or password";
+			delete $window.sessionStorage.token;
+			$scope.message = 'Error: Invalid username or password';
 		})
 	}
 })

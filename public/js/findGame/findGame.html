@@ -1,7 +1,7 @@
 <div class='findGameContainer'>
 	<h1 class='findGameHeader'> {{gameType}} </h1>
 	<br />
-	<div ng-repeat='item in items | filter:findFilter | orderBy: "date"' class="somethingWeird">
+	<div ng-repeat='item in items | orderBy: "date"' class="dividedMatches">
 		<a class='lookUpMatchContainer' ng-href="#/matchView/{{item._id}}">	
 		<div>{{item.location}}, {{item.city}}</div>
 		<div>Host: {{item.sport}}</div>
