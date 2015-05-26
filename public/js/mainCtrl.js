@@ -15,14 +15,20 @@ app.controller('mainCtrl', function($scope, $http, $window, apiUrl){
 		}).success(function(data, status, headers, config){
 			console.log("Success: " + angular.toJson(data));
 			$window.sessionStorage.token = data.token;
-			$window.sessionStorage.user = data.user;
 			console.log($window.sessionStorage);
         	$scope.message = 'Welcome';
+        	$scope.successLogin = function (){
+        		toaster.pop = ('success', 'Success!', 'You are now logged in');
+        	}
 		}).error(function(data, status, headers, config){
 			console.log("Error: " + angular.toJson(data));
 			$scope.message = "Error: Invalid username or password";
 			delete $window.sessionStorage.token;
-			$scope.message = 'Error: Invalid username or password';
+			$scope.error = function (){
+				toaster.pop = ('warning', 'Error!', 'Invalid username or password');
+        	}
 		})
 	}
-})
+});
+
+

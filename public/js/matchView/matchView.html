@@ -1,9 +1,9 @@
 <div class="matchContainer">
 	<div class="matchInformation">
-		<div class="gameAddress">Location: {{ item.location }}, {{item.city}}</div>
-		<div class="host">Host: {{ user.name }}</div>
-		<div class="gameTime">Time: {{ item.date | date:'MMM dd, yyyy h:mm a' }}</div>
-		<div class="additionalDetails">Additional Details: {{ item.additionalDetails }}</div>
+		<div class="gameAddress">Location: {{ item.match.location }}, {{item.match.city}}</div>
+		<div class="host">Host: {{ item.user }}</div>
+		<div class="gameTime">Time: {{ item.match.date | date:'MMM dd, yyyy h:mm a' }}</div>
+		<div class="additionalDetails">Additional Details: {{ item.match.additionalDetails }}</div>
 		<div class='rsvp'>
 			<button type='button' class='btn btn-default btn-lg' ng-click=''>RSVP</button>
 			<div class="attend">Whose going: | 1</div>
@@ -14,8 +14,7 @@
 	<div class="mapContainer">
 		<iframe
 	  		frameborder="0" style="border:0"
-	  		ng-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw
-	    	&q=hash"><!--{{item.location}} {{item.city}} {{item.state}}-->
+	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw&q=vancouver">
 		</iframe>
 	</div>
 	<br />
@@ -25,16 +24,16 @@
 	</div>
 	<br />
 	<div class="addPlayerComment">
-		<form>
+		<form ng-submit="addComment()">
 			<label>Comments:</label>
-			<textarea class="form-control" rows="3" ng-model="matchView.comments"placeholder="Write something..."></textarea>
+			<textarea class="form-control" rows="3" ng-model="comment.comment"placeholder="Write something..."></textarea>
 			<button type='submit' class='btn btn-default'>Comment</button>
 		</form>
 	</div>
 	<br />
-	<div class="postedComment">
-		<div> {{ user.name }}: </div>
-		<div> {{ comment.comment }} </div>
-		<div class="timeStamp"> {{ createdAt.date }}</div>
+	<div class="postedComment" ng-repeat="comments in addedcomments">
+		<div> {{ comments.username }}: </div>
+		<div> {{ comments.comment }} </div>
+		<div class="timeStamp"> {{ comments.date }}</div>
 	</div>
 </div>

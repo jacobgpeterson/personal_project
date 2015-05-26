@@ -3,8 +3,7 @@
 	<br />
 	<div ng-repeat='item in items | orderBy: "date"' class="dividedMatches">
 		<a class='lookUpMatchContainer' ng-href="#/matchView/{{item._id}}">	
-		<div>{{item.location}}, {{item.city}}</div>
-		<div>Host: {{item.sport}}</div>
+		<div>{{item.location}}, {{item.city}}, {{item.state}}</div>
 		<div>{{item.date | date:'MMM dd, yyyy  h:mm a'}}</div>
 		</a>
 	</div>

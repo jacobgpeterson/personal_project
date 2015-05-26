@@ -76,6 +76,10 @@ html, body {
   margin-top: 2px;
 }
 
+.alert-error {
+  margin: 20px auto;
+}
+
 .bodyContainer {
   margin: 20px auto;
 }

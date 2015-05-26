@@ -22,7 +22,6 @@ app.controller('findGameCtrl', function($scope, $routeParams, $http, apiUrl){
 
 	var getGames = function(gameType){
 		$http.get(apiUrl + '/find/' + gameType).success(function(data){
-			console.log(angular.toJson(data));
 			$scope.items = data;
 		});
 	};

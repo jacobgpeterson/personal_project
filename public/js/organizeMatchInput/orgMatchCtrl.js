@@ -1,13 +1,11 @@
 var app = angular.module('pickUpApp');
 
-app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl, $location){
-	
+app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl, $location, $window){
 		$scope.addMatch = function(){
 		var dfd = $q.defer();
-		console.log('function hit!')
-		var d = $scope.match.date;
+		var d = new Date(Date.parse($scope.match.date));
 		var t = $scope.match.time;
-		
+
 		var newDate = new Date(d.getFullYear(),d.getMonth(),d.getDate(),t.getHours(),t.getMinutes());
 		console.log (newDate);
 		
@@ -15,13 +13,13 @@ app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl, $location){
 			method: 'POST',
 			url: apiUrl + '/match',
 			data: {
-				// user: name,
 				sport: $scope.match.sport,
 				location: $scope.match.location,
 				city: $scope.match.city,
 				state: $scope.match.state,
 				date: newDate,
 				additionalDetails: $scope.match.additionalDetails,
+				token: $window.sessionStorage.token,
 			}
 		}).success(function(data){
 			console.log("Success: " + angular.toJson(data));

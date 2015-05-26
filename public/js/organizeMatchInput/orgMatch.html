@@ -82,7 +82,7 @@
 		<br />
 		<div>
 			<label>Date:</label>
-			<input class="dateInput" type="date" ng-model="match.date" required>
+			<input class="dateInput" id="datepicker" type="text" ng-model="match.date" placeholder="Date" required>
 			<label class="orgTimeSet">Time:</label>
 			<input type="time" ng-model="match.time" required>
 		</div>
@@ -99,3 +99,6 @@
 		</div>
 	</form>
 </div>
+<pre>
+{{ match }}
+</pre>
