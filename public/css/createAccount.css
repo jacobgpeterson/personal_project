@@ -5,6 +5,7 @@
 	background-color: grey;
 	padding: 15px;
 	color: white;
+	min-width: 280px;
 }
 .createAccountForm div{
 	margin: 20px 0;

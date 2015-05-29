@@ -4,7 +4,7 @@
 	<form ng-submit="addMatch()">
 		<div class="form-group">
 			<label>Select Sport:</label>
-			<select class="form-control" ng-model="match.sport" required>
+			<select class="form-control" ng-model="match.sport" name="sport" required>
 				<option value="" disabled selected>Select Sport</option>
 		    	<option value="baseball">Baseball</option>
 		    	<option value="basketball">Basketball</option>
@@ -15,6 +15,10 @@
 		    	<option value="volleyball">Volleyball</option>
 		    	<option value="misc">Misc</option>
 			</select>
+		</div>
+		<div ng-show="miscSelected" class="form-group" >
+			<label>Game:</label>
+			<input type="test" class="form-control" placeholder="Game" ng-model="match.game">
 		</div>
 		<div>
 			<label>Park Name or Street Address:</label>
@@ -99,6 +103,3 @@
 		</div>
 	</form>
 </div>
-<pre>
-{{ match }}
-</pre>

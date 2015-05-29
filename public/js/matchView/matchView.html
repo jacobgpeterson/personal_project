@@ -2,19 +2,20 @@
 	<div class="matchInformation">
 		<div class="gameAddress">Location: {{ item.match.location }}, {{item.match.city}}</div>
 		<div class="host">Host: {{ item.user }}</div>
+		<div class="host">Game type: {{item.match.sport}}  {{item.match.game}}</div>
 		<div class="gameTime">Time: {{ item.match.date | date:'MMM dd, yyyy h:mm a' }}</div>
 		<div class="additionalDetails">Additional Details: {{ item.match.additionalDetails }}</div>
-		<div class='rsvp'>
-			<button type='button' class='btn btn-default btn-lg' ng-click=''>RSVP</button>
-			<div class="attend">Whose going: | 1</div>
-		</div>
+		<div ng-show="loggedIn" class='rsvp'>
+			<button type='button' class='btn btn-default btn-lg' ng-click='addRsvp()'>RSVP</button>
+		</div>	
+		<div class="attend">Whose going: {{item.match.rsvp}}</div>
 	</div>
 	
 	<br />
 	<div class="mapContainer">
 		<iframe
 	  		frameborder="0" style="border:0"
-	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw&q=vancouver">
+	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw&q=Mitchell Hollow Park">
 		</iframe>
 	</div>
 	<br />

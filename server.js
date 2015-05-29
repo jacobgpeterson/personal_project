@@ -10,8 +10,11 @@ var secret = '20h@0vah%9vhq30944&0204!';
 
 var apiRoutes = express.Router(); 
 var Comment = require('./models/Comment');
-var Match = require('./models/Match');
 var User = require('./models/User');
+var Rsvp = require('./models/Rsvp');
+var Match = require('./models/Match');
+
+
 
 String.prototype.toObjectId = function() {
   var ObjectId = (require('mongoose').Types.ObjectId);
@@ -60,7 +63,7 @@ app.post('/login', function(req, res){
 		} else{
 			bcrypt.compare(req.body.password, user.password, function(err, match){
 				if (match){
-					var token = jwt.sign(user._id, secret, {
+					var token = jwt.sign({userid: user._id, username: user.username}, secret, {
 					expiresInMinutes: 1440
 					});
 					res.status(200).json({
@@ -85,6 +88,16 @@ app.get('/find/:sport', function(req, res){
   		}
 	})
 });
+app.get('/mymatch/:user', function(req, res){
+	var user = req.params.user;
+	Match.find({'user' : user}, function(err, matches){
+		if (err){
+			res.send(err);
+		} else{
+			res.send(matches);
+		}
+	})
+});
 app.get('/view/:id', function(req, res){
 	var id = req.params.id;
 	
@@ -105,6 +118,13 @@ app.get('/view/:id', function(req, res){
   		}
 	}) 
 });
+app.get('/checklogin', function(req, res){
+	if (req.user){
+		res.send(true);
+	} else{
+		res.send(false);
+	}
+});
 // app.get('/getComment', function(req, res){
 // 	Comment.find({"_id" : id.toObjectId() },
 // 		function(err, comment){
@@ -122,7 +142,7 @@ app.get('/view/:id', function(req, res){
 // })
 app.use('/match', apiRoutes);
 app.post('/match', function(req, res){
-	req.body.user = req.decoded;
+	req.body.user = req.decoded.userid;
 	var newMatch = new Match(req.body);
 	console.log(newMatch);
 	newMatch.save( function(err, result) {
@@ -130,10 +150,41 @@ app.post('/match', function(req, res){
       res.send(result);
   	});
 });
-app.get('/users', function(req, res) {
-  	User.find({}, function(err, users) {
-    	res.json(users);
-  	});
+// app.get('/users', function(req, res) {
+//   	User.find({}, function(err, users) {
+//     	res.json(users);
+//   	});
+// });
+app.use('/rsvp', apiRoutes);
+app.post('/rsvp', function(req, res){
+	
+	req.body.userid = req.decoded.userid;
+	req.body.username = req.decoded.username;
+	var newRsvp = new Rsvp(req.body);
+	Match.findOne({ "_id" : req.body.matchId.toObjectId() }, function(err, match){
+		if (err) {
+			res.send(err);
+		} else{
+			var found = false;
+				for(var i = 0; i < match.rsvp.length; i++)
+				{
+					if(req.body.username === match.rsvp[i].username){
+						delete match.rsvp[i];
+						found = true;
+					}
+				}
+				if(!found)
+				{
+					match.rsvp.push(newRsvp);
+					match.save(function(err2, result){
+				 	if (err2){return res.status(500).send(err2);}
+				 		res.send(result);
+					});	
+			}
+
+		}
+	});
+	
 });
 app.use('/comment', apiRoutes);
 app.post('/comment', function (req, res){

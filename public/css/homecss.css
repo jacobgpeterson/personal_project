@@ -53,7 +53,7 @@ img {
 }
 @media (max-width: 450px) {
 	.homeContainer {
-		min-width: 320px;
+		min-width: 290px;
 	}
 	.homeTitle {
 		font-size: 33px;

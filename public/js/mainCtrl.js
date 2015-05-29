@@ -1,10 +1,19 @@
 var app = angular.module('pickUpApp');
 
 
-app.controller('mainCtrl', function($scope, $http, $window, apiUrl){
+app.controller('mainCtrl', function($scope, $http, $window, $rootScope, apiUrl, ngToast){
 	$scope.user = (username = '');
+	$scope.loggedIn = !!$window.sessionStorage.token;
 	$scope.message = '';
-	$scope.mainLogin = function(){
+	$scope.logout = function(){
+		delete $window.sessionStorage.token;
+		$scope.loggedIn = false;
+		ngToast.create({
+			className: 'success',
+			content: 'Logout successful.'
+		})
+	};
+	$scope.mainLogin = function(toaster){
 		$http({
 			method: 'POST',
 			url: apiUrl + '/login',
@@ -13,22 +22,23 @@ app.controller('mainCtrl', function($scope, $http, $window, apiUrl){
 				password: $scope.login.password,
 			}
 		}).success(function(data, status, headers, config){
-			console.log("Success: " + angular.toJson(data));
 			$window.sessionStorage.token = data.token;
-			console.log($window.sessionStorage);
         	$scope.message = 'Welcome';
-        	$scope.successLogin = function (){
-        		toaster.pop = ('success', 'Success!', 'You are now logged in');
-        	}
+        	$scope.loggedIn = true;
+			ngToast.create({
+  				className: 'success',
+  				content: 'Login successful.'
+			});
 		}).error(function(data, status, headers, config){
-			console.log("Error: " + angular.toJson(data));
 			$scope.message = "Error: Invalid username or password";
 			delete $window.sessionStorage.token;
-			$scope.error = function (){
-				toaster.pop = ('warning', 'Error!', 'Invalid username or password');
-        	}
+			$scope.loggedIn = false;
+			ngToast.create({
+  				className: 'danger',
+  				content: 'Invalid username or password.'
+			});
 		})
-	}
+	};
 });
 
 

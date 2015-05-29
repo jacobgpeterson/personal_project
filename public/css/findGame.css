@@ -4,7 +4,7 @@
 	background-color: grey;
 	margin: 0 auto;
 	padding: 15px;
-	min-width: 600px;
+	min-width: 280px;
 	color: white;
 }
 .findGameContainer h1 {
@@ -33,4 +33,14 @@
 	font-size: 15px;
 	border-top: 1px solid white;
 	padding: 10px;
+}
+@media (max-width: 800px){
+	.findGameContainer h1 {
+		font-size: 56px;
+	}
+}
+@media (max-width: 450px){
+	.lookUpMatchContainer {
+		font-size: 18px;
+	}
 }

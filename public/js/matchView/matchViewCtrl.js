@@ -12,6 +12,24 @@ app.controller('matchViewCtrl', function($scope, $http, $routeParams, $window, $
   };
 	getMatch($routeParams.id);
   
+  $scope.addRsvp = function(){
+    var dfd = $q.defer();
+    $http({
+      method: 'POST',
+      url: apiUrl + '/rsvp',
+      data: {
+        token: $window.sessionStorage.token,
+        matchId: $routeParams.id,
+      }
+    }).success(function(data){
+      console.log("Success: "+angular.toJson(data));
+      dfd.resolve(data);
+    }).error(function(data){
+      console.log("Error: "+angular.toJson(data));
+    });
+    return dfd.promise;
+  }
+
   $scope.addComment = function(){
     var dfd = $q.defer();
     $http({
@@ -21,6 +39,7 @@ app.controller('matchViewCtrl', function($scope, $http, $routeParams, $window, $
         comments: $scope.comment.comment,
         createdAt: $scope.date,
         token: $window.sessionStorage.token,
+        matchId: $routeParams.id,
       }
     }).success(function(data){
       console.log("Success: "+ angular.toJson(data));

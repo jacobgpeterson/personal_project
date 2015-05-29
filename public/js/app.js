@@ -1,4 +1,4 @@
-var app = angular.module('pickUpApp', ['ngRoute']);
+var app = angular.module('pickUpApp', ['ngRoute', 'ngToast']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -21,6 +21,10 @@ app.config(function($routeProvider){
 	.when('/matchView/:id', {
 		templateUrl:'/js/matchView/matchView.html',
 		controller:'matchViewCtrl'
+	})
+	.when('/myMatches', {
+		templateUrl: '/js/myMatches/myMatch.html',
+		controller: 'myMatchCtrl'
 	})
 	.otherwise({
 		redirectTo: '/home'
