@@ -10,7 +10,7 @@ app.controller('mainCtrl', function($scope, $http, $window, $rootScope, apiUrl, 
 		$scope.loggedIn = false;
 		ngToast.create({
 			className: 'success',
-			content: 'Logout successful.'
+			content: '<strong>Success! </strong>You are now logged out.'
 		})
 	};
 	$scope.mainLogin = function(toaster){
@@ -18,7 +18,7 @@ app.controller('mainCtrl', function($scope, $http, $window, $rootScope, apiUrl, 
 			method: 'POST',
 			url: apiUrl + '/login',
 			data: {
-				username: $scope.login.username,
+				username: $scope.login.username.toLowerCase(),
 				password: $scope.login.password,
 			}
 		}).success(function(data, status, headers, config){
@@ -27,7 +27,7 @@ app.controller('mainCtrl', function($scope, $http, $window, $rootScope, apiUrl, 
         	$scope.loggedIn = true;
 			ngToast.create({
   				className: 'success',
-  				content: 'Login successful.'
+  				content: '<strong>Success! </strong>You are now logged in.'
 			});
 		}).error(function(data, status, headers, config){
 			$scope.message = "Error: Invalid username or password";
@@ -35,7 +35,7 @@ app.controller('mainCtrl', function($scope, $http, $window, $rootScope, apiUrl, 
 			$scope.loggedIn = false;
 			ngToast.create({
   				className: 'danger',
-  				content: 'Invalid username or password.'
+  				content: '<strong>Error! </strong>Invalid username or password.'
 			});
 		})
 	};

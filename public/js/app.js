@@ -1,4 +1,4 @@
-var app = angular.module('pickUpApp', ['ngRoute', 'ngToast']);
+var app = angular.module('pickUpApp', ['ngRoute', 'ngToast', 'ngSanitize']);
 
 app.config(function($routeProvider){
 	$routeProvider

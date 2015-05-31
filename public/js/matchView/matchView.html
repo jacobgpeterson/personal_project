@@ -1,22 +1,20 @@
 <div class="matchContainer">
 	<div class="matchInformation">
-		<div class="gameAddress">Location: {{ item.match.location }}, {{item.match.city}}</div>
+		<div class="gameAddress">Location: {{item.match.location}}, {{item.match.city}}</div>
 		<div class="host">Host: {{ item.user }}</div>
 		<div class="host">Game type: {{item.match.sport}}  {{item.match.game}}</div>
 		<div class="gameTime">Time: {{ item.match.date | date:'MMM dd, yyyy h:mm a' }}</div>
 		<div class="additionalDetails">Additional Details: {{ item.match.additionalDetails }}</div>
 		<div ng-show="loggedIn" class='rsvp'>
-			<button type='button' class='btn btn-default btn-lg' ng-click='addRsvp()'>RSVP</button>
-		</div>	
-		<div class="attend">Whose going: {{item.match.rsvp}}</div>
+			<button type='button' class='btn btn-default btn-lg' ng-click='addRsvp()' onClick="window.location.reload()">RSVP</button>
+		</div>
+		<div class="attend">Whose going:
+			<div class="attendName" ng-repeat="user in item.match.rsvp">{{user.username}}<span ng-show=" ! $last ">,</span></div>
+		</div>
 	</div>
-	
 	<br />
 	<div class="mapContainer">
-		<iframe
-	  		frameborder="0" style="border:0"
-	  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw&q=Mitchell Hollow Park">
-		</iframe>
+		<gamemap>{{item.match.location}}, {{item.match.city}}</gamemap>
 	</div>
 	<br />
 	<div class='weatherContainer'>
@@ -24,17 +22,21 @@
 		</iframe>
 	</div>
 	<br />
-	<div class="addPlayerComment">
+	<div class="addPlayerComment"><strong>Comments:</strong></div>
+	<div ng-show="loggedIn" class="addPlayerComment">
 		<form ng-submit="addComment()">
-			<label>Comments:</label>
 			<textarea class="form-control" rows="3" ng-model="comment.comment"placeholder="Write something..."></textarea>
-			<button type='submit' class='btn btn-default'>Comment</button>
+			<button type='submit' class='btn btn-default' onClick="window.location.reload()">Comment</button>
 		</form>
 	</div>
-	<br />
-	<div class="postedComment" ng-repeat="comments in addedcomments">
-		<div> {{ comments.username }}: </div>
-		<div> {{ comments.comment }} </div>
-		<div class="timeStamp"> {{ comments.date }}</div>
+	<div ng-init="limit = 7">
+		<div class="postedComment" ng-repeat="comment in item.match.comments| orderBy: 'createdAt': 'reverse' | limitTo:limit as results">
+			<div> <strong><i>{{ comment.username }}</i></strong> says: </div>
+			<div class="commentComment"> {{ comment.comments }} </div>
+			<div class="timeStamp"> {{ comment.createdAt | date:'MMM dd h:mm a' }}</div>
+		</div>
+	</div>
+	<div class="loadMoreComments">
+		<a ng-hide="results.length === comments.length" ng-click="limit = limit + 7">Show more...</a>
 	</div>
 </div>

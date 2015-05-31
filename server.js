@@ -144,56 +144,52 @@ app.use('/match', apiRoutes);
 app.post('/match', function(req, res){
 	req.body.user = req.decoded.userid;
 	var newMatch = new Match(req.body);
-	console.log(newMatch);
 	newMatch.save( function(err, result) {
       if (err) {return res.status(500).send(err);}
       res.send(result);
   	});
 });
-// app.get('/users', function(req, res) {
-//   	User.find({}, function(err, users) {
-//     	res.json(users);
-//   	});
-// });
 app.use('/rsvp', apiRoutes);
 app.post('/rsvp', function(req, res){
 	
 	req.body.userid = req.decoded.userid;
 	req.body.username = req.decoded.username;
 	var newRsvp = new Rsvp(req.body);
-	Match.findOne({ "_id" : req.body.matchId.toObjectId() }, function(err, match){
+	Match.findOne({"_id" : req.body.matchId.toObjectId()}, function(err, match){
 		if (err) {
 			res.send(err);
 		} else{
 			var found = false;
-				for(var i = 0; i < match.rsvp.length; i++)
-				{
-					if(req.body.username === match.rsvp[i].username){
-						delete match.rsvp[i];
-						found = true;
-					}
+			for(var i = 0; i < match.rsvp.length; i++){
+				if(req.body.username === match.rsvp[i].username){
+					delete match.rsvp[i];
+					found = true;
 				}
-				if(!found)
-				{
-					match.rsvp.push(newRsvp);
-					match.save(function(err2, result){
-				 	if (err2){return res.status(500).send(err2);}
-				 		res.send(result);
-					});	
 			}
-
+			if(!found){
+				match.rsvp.push(newRsvp);
+				match.save(function(err2, result){
+			 	if (err2){return res.status(500).send(err2);}
+			 		res.send(result);
+				});	
+			}
 		}
-	});
-	
+	});	
 });
 app.use('/comment', apiRoutes);
 app.post('/comment', function (req, res){
-	req.body.user = req.decoded;
+	req.body.userid = req.decoded.userid;
+	req.body.username = req.decoded.username;
 	var newComment = new Comment(req.body);
-	console.log(newComment);
-	newComment.save(function(err, result){
+	Match.findOne({"_id" : req.body.matchId.toObjectId()}, function(err, match){
 		if (err) {return res.status(500).send(err);}
-		res.send(result);
+		else{
+			match.comments.push(newComment);
+			match.save(function(err2, result){
+				if (err2){return res.status(500).send(err2);}
+				res.send(result);
+			})
+		}
 	})
 })   
 

@@ -29,6 +29,12 @@
 .attend{
 	font-size: 18px;
 	margin-top: 8px;
+	display: flex;
+	flex-flow: row wrap;
+}
+.attendName{
+	font-size: 18px;
+	margin-left: 5px;
 	color: #5CB0FB;
 }
 .weatherContainer {
@@ -44,11 +50,11 @@ iframe {
 .mapContainer {
 	height: 500px;
 	width: 90%;
-	margin: 0 auto;
+	margin: 10px auto 0;
 }
 .addPlayerComment {
 	width:90%;
-	margin: 0 auto;
+	margin: 10px auto 20px;
 	max-width: 90%;
 }
 .addPlayerComment button{
@@ -62,8 +68,19 @@ iframe {
 	text-align: left;
 	border-bottom: 1px solid white;
 }
+.commentComment{
+	margin: 5px 30px;
+}
 .timeStamp {
 	text-align: right;
+}
+.loadMoreComments{
+	margin: 10px auto;
+	text-decoration: none;
+	color: #ffffff;
+}
+.loadMoreComments:hover{
+	text-decoration: none:;
 }
 @media (max-width: 700px){
 	.gameAddress{

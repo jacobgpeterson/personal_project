@@ -17,13 +17,13 @@
           className: 'success',
           additionalClasses: null,
           dismissOnTimeout: true,
-          timeout: 4000,
+          timeout: 3000,
           dismissButton: false,
           dismissButtonHtml: '&times;',
           dismissOnClick: true,
           compileContent: false,
           combineDuplications: false,
-          horizontalPosition: 'right', // right, center, left
+          horizontalPosition: 'center', // right, center, left
           verticalPosition: 'top', // top, bottom,
           maxNumber: 0
         };

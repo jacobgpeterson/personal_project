@@ -104,8 +104,8 @@ html, body {
 .loginDropdown{
   width: 150px;
 }
-.alert-error {
-  margin: 20px auto;
+.sportSelect li:nth-child(3){
+  border: 0;
 }
 .bodyContainer {
   margin: 20px auto;

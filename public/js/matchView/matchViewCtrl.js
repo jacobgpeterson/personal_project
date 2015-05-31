@@ -1,17 +1,24 @@
 var app = angular.module('pickUpApp')
 
 app.controller('matchViewCtrl', function($scope, $http, $routeParams, $window, $q, apiUrl){
+  
   var getMatch = function(matchId){
 		$http.get(apiUrl + '/view/' + matchId).success(function(data){
 			console.log(angular.toJson(data));
 			$scope.item = data;
-      // document.getElementById('if1').href ='https://www.google.com/maps/embed/v1/place?key=AIzaSyBZ8sfZZI9FGmS4-kgf439jbd2emnzwAqw&q=vancouver';
 		}).error(function(data){
 			console.log("Error: " + angular.toJson(data));
 		});	
   };
 	getMatch($routeParams.id);
-  
+
+  $(document).ready(function(){
+    $("gamemap").each(function(){
+      var embed ="<iframe frameborder='0' style='border:0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
+      $(this).html(embed);
+    });
+  });
+
   $scope.addRsvp = function(){
     var dfd = $q.defer();
     $http({
@@ -49,15 +56,9 @@ app.controller('matchViewCtrl', function($scope, $http, $routeParams, $window, $
     });
     return dfd.promise;
   }
-  // var getComments = function(matchid){
-  //   $http.get(apiUrl + '/getComment' + matchId).success(function(data){
-  //     console.log(angular.toJson(data));
-  //     $scope.addedcomments = data;
-  //   }).error(function(data){
-  //     console.log("Error: " + angular.toJson(data));
-  //   })
+  // $scope.limit = 7;
+
+  // $scope.loadMore = function() {
+  //   $scope.limit = $scope.items.length
   // }
-  // setInterval(function(){
-  //   $scope.getComments();
-  // }, 1500)
 });

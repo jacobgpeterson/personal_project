@@ -29,18 +29,16 @@ app.controller('orgMatchCtrl', function($scope, $http, $q, apiUrl, $location, $w
 				token: $window.sessionStorage.token,
 			}
 		}).success(function(data){
-			console.log("Success: " + angular.toJson(data));
 			dfd.resolve(data);
 			$location.path('#/matchView/' + data._id);
 			ngToast.create({
 				className: 'success',
-				content: 'Match created!'
+				content: '<strong>Success! </strong>Match created!'
 			})
 		}).error(function(data){
-			console.log("Error: "+ angular.toJson(data));
 			ngToast.create({
-				className: 'warning',
-				content: 'Problem creating match.'
+				className: 'danger',
+				content: '<strong>Error! </strong>Problem creating match.'
 			})
 		});
 		return dfd.promise;
