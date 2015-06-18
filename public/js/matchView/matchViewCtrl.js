@@ -12,13 +12,6 @@ app.controller('matchViewCtrl', function($scope, $http, $routeParams, $window, $
   };
 	getMatch($routeParams.id);
 
-  $(document).ready(function(){
-    $("gamemap").each(function(){
-      var embed ="<iframe frameborder='0' style='border:0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
-      $(this).html(embed);
-    });
-  });
-
   $scope.addRsvp = function(){
     var dfd = $q.defer();
     $http({
@@ -56,6 +49,13 @@ app.controller('matchViewCtrl', function($scope, $http, $routeParams, $window, $
     });
     return dfd.promise;
   }
+
+  $(document).ready(function(){
+    $("gamemap").each(function(){
+      var embed ="<iframe frameborder='0' style='border:0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
+      $(this).html(embed);
+    });
+  });
   // $scope.limit = 7;
 
   // $scope.loadMore = function() {

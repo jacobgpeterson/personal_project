@@ -25,6 +25,7 @@ String.prototype.toObjectId = function() {
 var app = express();
 
 // Middleware
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
@@ -52,6 +53,7 @@ app.post('/user', function(req, res){
     	res.send(result);
 	});
 });
+
 app.post('/login', function(req, res){
 	User.findOne({
 		username: req.body.username
@@ -125,21 +127,6 @@ app.get('/checklogin', function(req, res){
 		res.send(false);
 	}
 });
-// app.get('/getComment', function(req, res){
-// 	Comment.find({"_id" : id.toObjectId() },
-// 		function(err, comment){
-// 			if (err){
-// 				res.send(err);
-// 			} else {
-// 				User.findOne({"_id": comment.user},
-// 					function (err1, user){
-// 						res.send(err1);
-// 					}else{
-// 						res.send({user: user.username});
-// 					})
-// 			}
-// 		})
-// })
 app.use('/match', apiRoutes);
 app.post('/match', function(req, res){
 	req.body.user = req.decoded.userid;

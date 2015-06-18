@@ -26,6 +26,10 @@ app.config(function($routeProvider){
 		templateUrl: '/js/myMatches/myMatch.html',
 		controller: 'myMatchCtrl'
 	})
+	.when('/test', {
+		templateUrl: '/js/test/test.html',
+		controller: 'testCtrl'
+	})
 	.otherwise({
 		redirectTo: '/home'
 	})

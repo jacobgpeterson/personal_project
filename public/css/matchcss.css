@@ -74,14 +74,6 @@ iframe {
 .timeStamp {
 	text-align: right;
 }
-.loadMoreComments{
-	margin: 10px auto;
-	text-decoration: none;
-	color: #ffffff;
-}
-.loadMoreComments:hover{
-	text-decoration: none:;
-}
 @media (max-width: 700px){
 	.gameAddress{
 		font-size: 30px;
